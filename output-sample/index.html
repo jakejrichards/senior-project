@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <title>Senior Project</title>
+  </head>
+  <body>
+    <div class="question" data-correct="blue" data-hint="It rhymes with glue.">
+      <div class="question-text">
+        What color is the sky?
+      </div>
+      <div>
+        <div class="answer-choice">
+          <input
+            id="uuid1"
+            type="radio"
+            name="038af175-e30b-4d85-b7ee-ba031ef8af57"
+            data-feedback="The sky is not red."
+            value="red"
+          />
+          <label for="uuid1">Red</label>
+        </div>
+        <div class="answer-choice">
+          <input
+            type="radio"
+            name="038af175-e30b-4d85-b7ee-ba031ef8af57"
+            value="blue"
+          />
+          <label for="blue">Blue</label>
+        </div>
+        <div class="answer-choice">
+          <input
+            type="radio"
+            name="038af175-e30b-4d85-b7ee-ba031ef8af57"
+            data-feedback="The sky is not green."
+            value="green"
+          />
+          <label for="green">Green</label><br />
+        </div>
+        <div class="answer-choice">
+          <input
+            type="radio"
+            name="038af175-e30b-4d85-b7ee-ba031ef8af57"
+            data-feedback="The sky is not yellow."
+            value="yellow"
+          />
+          <label for="yellow">Yellow</label>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="toggle-hint">
+          View Hint
+        </button>
+        <button disabled class="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

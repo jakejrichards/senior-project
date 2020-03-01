@@ -1,0 +1,52 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.question {
+  width: 500px;
+}
+
+.question-text {
+  padding: 10px;
+}
+
+.hint {
+  display: none;
+}
+
+.hint.visible {
+  display: block;
+}
+
+.answer-choice {
+  border: 1px solid #eaeaea;
+  padding: 10px 7.5px;
+  cursor: pointer;
+}
+
+.answer-choice:hover {
+  background-color: #f3f3f3;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.buttons button:hover {
+  background-color: #f3f3f3;
+}
+
+.buttons button:disabled {
+  background-color: #fff;
+  cursor: not-allowed;
+}
