@@ -1,11 +1,10 @@
 local List = require("pandoc.List")
-local inspect = require("inspect")
 local F = require("F")
 
-function answerChoiceHtml(name, feedback, questionId)
+function answerChoiceHtml(name, text, feedback, questionId)
   return F[[
     <input type="radio" name="{questionId}" value="{name}" data-feedback="{feedback}" />
-    <label for="{name}">{name}</label>
+    <label for="{name}">{text}</label>
   ]];
 end
 
@@ -21,9 +20,10 @@ if FORMAT:match "html" then
     class = el.classes[1]
     if class == "answer-choice" then
       name = el.attr.attributes.name
+      text = el.attr.attributes.text
       feedback = el.attr.attributes.feedback
       questionId = el.attr.attributes.questionId
-      table.insert(el.content, pandoc.RawBlock("html", answerChoiceHtml(name, feedback, questionId)))
+      table.insert(el.content, pandoc.RawBlock("html", answerChoiceHtml(name, text, feedback, questionId)))
       return el
     elseif class == "question" then
       content = el.content
