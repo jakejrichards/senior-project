@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Questions Example</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    * {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .question {
+      width: 500px;
+    }
+
+    .question-text {
+      padding: 10px;
+    }
+
+    .hint {
+      display: none;
+    }
+
+    .hint.visible {
+      display: block;
+    }
+
+    .answer-choice {
+      border: 1px solid #eaeaea;
+      padding: 10px 7.5px;
+      cursor: pointer;
+    }
+
+    .answer-choice:hover {
+      background-color: #f3f3f3;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .buttons button {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #eaeaea;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none !important;
+    }
+
+    .buttons button:hover {
+      background-color: #f3f3f3;
+    }
+
+    .buttons button:disabled {
+      background-color: #fff;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Questions Example</h1>
+</header>
+<div id="1" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo">
+<p>What color is the sky?</p>
+<div class="answer-choice" data-questionId="1" name="red" data-feedback="The sky is not red">
+    <input type="radio" name="1" value="red" data-feedback="The sky is not red"></input>
+    <label for="red">red</label>
+  
+</div>
+<div class="answer-choice" data-questionId="1" name="blue" data-feedback="Correct!">
+    <input type="radio" name="1" value="blue" data-feedback="Correct!"></input>
+    <label for="blue">blue</label>
+  
+</div>
+<div class="answer-choice" data-questionId="1" name="green" data-feedback="The sky is not green">
+    <input type="radio" name="1" value="green" data-feedback="The sky is not green"></input>
+    <label for="green">green</label>
+  
+</div>
+<div class="answer-choice" data-questionId="1" name="yellow" data-feedback="The sky is not yellow">
+    <input type="radio" name="1" value="yellow" data-feedback="The sky is not yellow"></input>
+    <label for="yellow">yellow</label>
+  
+</div>
+<div class="buttons">
+    <button class="toggle-hint">View Hint</button>
+    <button disabled class="submit">Submit</button>
+  
+</div>
+</div>
+<script type="text/javascript">
+  // Register handlers for all question divs
+  document.querySelectorAll(".question").forEach(question => {
+    // Question Data
+    const hint = question.getAttribute("data-hint");
+    const correct = question.getAttribute("data-correct");
+    const feedback = {};
+
+    // Question HTML Elements
+    const hintBtn = question.querySelector(".toggle-hint");
+    const submitBtn = question.querySelector(".submit");
+    const choices = question.querySelectorAll("input");
+    const choiceContainers = question.querySelectorAll(".answer-choice");
+
+    const getSelectedAnswer = () => {
+      for (let choice of choices) {
+        if (choice.checked) return choice.value;
+      }
+      return undefined;
+    };
+
+    // Setup container handlers for answer choices
+    choiceContainers.forEach(container => {
+      container.addEventListener("click", () => {
+        submitBtn.removeAttribute("disabled");
+        container.querySelector("input").checked = true;
+      });
+    });
+
+    // Setup click handlers & feedback for choices
+    choices.forEach(choice => {
+      feedback[choice.value] = choice.getAttribute("data-feedback");
+      choice.addEventListener("click", () => {
+        submitBtn.removeAttribute("disabled");
+      });
+    });
+
+    // Add click handler for submit button
+    submitBtn.addEventListener("click", () => {
+      const choice = getSelectedAnswer();
+      if (choice === correct) {
+        // display correct
+        alert("Correct!");
+      } else {
+        // display feedback
+        alert(
+          feedback[choice] || "Incorrect, please select another answer choice."
+        );
+      }
+    });
+
+    // Add click handler for hint button
+    hintBtn.addEventListener("click", () => {
+      alert(hint);
+    });
+  });
+</script>
+</body>
+</html>
