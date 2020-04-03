@@ -1,4 +1,4 @@
-pandoc --metadata title="Questions Example" --self-contained \
+pandoc --metadata title="Senior Project Demo" --self-contained \
        --lua-filter questions/filter.lua \
        --include-in-header questions/style.html \
        --include-after-body questions/script.html \

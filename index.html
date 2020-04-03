@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Questions Example</title>
+  <title>Senior Project Demo</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -19,7 +19,6 @@
   <style type="text/css">
     * {
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
     }
 
     .question {
@@ -73,27 +72,56 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Questions Example</h1>
+<h1 class="title">Senior Project Demo</h1>
 </header>
-<div id="1" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo">
-<p>What color is the sky?</p>
-<div class="answer-choice" data-questionId="1" name="red" data-text="Red" data-feedback="The sky is not red">
-    <input type="radio" name="1" value="red" data-feedback="The sky is not red"></input>
+<h3 id="secret-of-square-root-module">Secret of square root module</h3>
+<p>The secret of the <code>Sqrt</code> module in the previous section is the algorithm for computing the square root.</p>
+<div id="1" class="question" data-text="What is the secret of the Sqrt module?" data-correct="algo" data-hint="How do we compute the square root?">
+<p>1. What is the secret of the Sqrt module?</p>
+<div class="answer-choice" data-questionId="1" name="algo" data-text="The algorithm for computing" data-feedback="Correct">
+    <input type="radio" name="1" value="algo" data-feedback="Correct"></input>
+    <label for="algo">The algorithm for computing</label>
+  
+</div>
+<div class="answer-choice" data-questionId="1" name="name" data-text="The name of the function" data-feedback="It is not the name of the function.">
+    <input type="radio" name="1" value="name" data-feedback="It is not the name of the function."></input>
+    <label for="name">The name of the function</label>
+  
+</div>
+<div class="answer-choice" data-questionId="1" name="size" data-text="The size of the module" data-feedback="It is not the size of the module.">
+    <input type="radio" name="1" value="size" data-feedback="It is not the size of the module."></input>
+    <label for="size">The size of the module</label>
+  
+</div>
+<div class="buttons">
+    <button class="toggle-hint">View Hint</button>
+    <button disabled class="submit">Submit</button>
+  
+</div>
+</div>
+<h3 id="contracts-preconditions-and-postconditions">Contracts: Preconditions and postconditions</h3>
+<p>The <em>precondition</em> of a function is what the caller (i.e. the client of the function) must ensure holds when calling the function. A precondition may specify the valid combinations of values of the arguments. It may also record any constraints on any “global” state that the function accesses or modifies.</p>
+<p>If the precondition holds, the supplier (i.e. developer) of the function must ensure that the function terminates with the <em>postcondition</em> satisfied. That is, the function returns the required values and/or alters the “global” state in the required manner.</p>
+<p>We sometimes call the set of preconditions and postconditions for a function the <em>contract</em> for that function.</p>
+<div id="2" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo">
+<p>2. What color is the sky?</p>
+<div class="answer-choice" data-questionId="2" name="red" data-text="Red" data-feedback="The sky is not red">
+    <input type="radio" name="2" value="red" data-feedback="The sky is not red"></input>
     <label for="red">Red</label>
   
 </div>
-<div class="answer-choice" data-questionId="1" name="blue" data-text="Blue" data-feedback="Correct!">
-    <input type="radio" name="1" value="blue" data-feedback="Correct!"></input>
+<div class="answer-choice" data-questionId="2" name="blue" data-text="Blue" data-feedback="Correct!">
+    <input type="radio" name="2" value="blue" data-feedback="Correct!"></input>
     <label for="blue">Blue</label>
   
 </div>
-<div class="answer-choice" data-questionId="1" name="green" data-text="Green" data-feedback="The sky is not green">
-    <input type="radio" name="1" value="green" data-feedback="The sky is not green"></input>
+<div class="answer-choice" data-questionId="2" name="green" data-text="Green" data-feedback="The sky is not green">
+    <input type="radio" name="2" value="green" data-feedback="The sky is not green"></input>
     <label for="green">Green</label>
   
 </div>
-<div class="answer-choice" data-questionId="1" name="yellow" data-text="Yellow" data-feedback="The sky is not yellow">
-    <input type="radio" name="1" value="yellow" data-feedback="The sky is not yellow"></input>
+<div class="answer-choice" data-questionId="2" name="yellow" data-text="Yellow" data-feedback="The sky is not yellow">
+    <input type="radio" name="2" value="yellow" data-feedback="The sky is not yellow"></input>
     <label for="yellow">Yellow</label>
   
 </div>
