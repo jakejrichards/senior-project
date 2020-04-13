@@ -3,7 +3,7 @@ local F = require("F")
 
 function answerChoiceHtml(name, text, feedback, questionId)
   return F[[
-    <input type="radio" name="{questionId}" value="{name}" data-feedback="{feedback}" />
+    <input type="radio" name="{questionId}" value="{name}" data-text="{text}" data-feedback="{feedback}" />
     <label for="{name}">{text}</label>
   ]];
 end

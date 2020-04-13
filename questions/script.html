@@ -1,12 +1,34 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDsXdoE5l_HbJrfP6UfTSyjVL8muUn6wi8",
+    authDomain: "senior-project-jjr.firebaseapp.com",
+    databaseURL: "https://senior-project-jjr.firebaseio.com",
+    projectId: "senior-project-jjr",
+    storageBucket: "senior-project-jjr.appspot.com",
+    messagingSenderId: "212598909638",
+    appId: "1:212598909638:web:faad1f5eb5f120df4645c7",
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 <script type="text/javascript">
+  const db = firebase.firestore();
+
   // Register handlers for all question divs
-  document.querySelectorAll(".question").forEach(question => {
+  document.querySelectorAll(".question").forEach((question) => {
     // Question Data
     const hint = question.getAttribute("data-hint");
     const correct = question.getAttribute("data-correct");
     const feedback = {};
 
     // Question HTML Elements
+    let hintUsed = false;
+    const questionText = question.getAttribute("data-text");
     const hintBtn = question.querySelector(".toggle-hint");
     const submitBtn = question.querySelector(".submit");
     const choices = question.querySelectorAll("input");
@@ -14,13 +36,13 @@
 
     const getSelectedAnswer = () => {
       for (let choice of choices) {
-        if (choice.checked) return choice.value;
+        if (choice.checked) return choice;
       }
       return undefined;
     };
 
     // Setup container handlers for answer choices
-    choiceContainers.forEach(container => {
+    choiceContainers.forEach((container) => {
       container.addEventListener("click", () => {
         submitBtn.removeAttribute("disabled");
         container.querySelector("input").checked = true;
@@ -28,7 +50,7 @@
     });
 
     // Setup click handlers & feedback for choices
-    choices.forEach(choice => {
+    choices.forEach((choice) => {
       feedback[choice.value] = choice.getAttribute("data-feedback");
       choice.addEventListener("click", () => {
         submitBtn.removeAttribute("disabled");
@@ -38,19 +60,36 @@
     // Add click handler for submit button
     submitBtn.addEventListener("click", () => {
       const choice = getSelectedAnswer();
-      if (choice === correct) {
+      // Add submission Cloud Firestore
+      db.collection("submissions")
+        .add({
+          selected_answer: choice.getAttribute("data-text"),
+          answer_choices: Array.from(choices).map((choice) =>
+            choice.getAttribute("data-text")
+          ),
+          question_text: questionText,
+          created_at: firebase.firestore.FieldValue.serverTimestamp(),
+          hint_used: hintUsed,
+          correct: choice.value === correct,
+        })
+        .then(() => console.log("Submission successfully saved!"))
+        .catch(() => console.log("Unable to save submission!"));
+
+      if (choice.value === correct) {
         // display correct
         alert("Correct!");
       } else {
         // display feedback
         alert(
-          feedback[choice] || "Incorrect, please select another answer choice."
+          feedback[choice.value] ||
+            "Incorrect, please select another answer choice."
         );
       }
     });
 
     // Add click handler for hint button
     hintBtn.addEventListener("click", () => {
+      hintUsed = true;
       alert(hint);
     });
   });
