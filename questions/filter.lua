@@ -29,7 +29,7 @@ if FORMAT:match "html" then
       content = el.content
 
       id = el.identifier
-      text = id .. ". " .. el.attr.attributes.text
+      text = el.attr.attributes.text
       textPara = pandoc.Para(pandoc.Str(text))
       table.insert(el.content, 1, textPara)
 

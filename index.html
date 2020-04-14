@@ -18,15 +18,19 @@
   <![endif]-->
   <style type="text/css">
     * {
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
     }
 
     .question {
       width: 500px;
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
+      padding: 15px;
     }
 
-    .question-text {
-      padding: 10px;
+    .question > p {
+      margin-top: 0px;
     }
 
     .hint {
@@ -41,6 +45,11 @@
       border: 1px solid #eaeaea;
       padding: 10px 7.5px;
       cursor: pointer;
+      margin-bottom: 3px;
+    }
+
+    .answer-choice > label {
+      font-size: 14px;
     }
 
     .answer-choice:hover {
@@ -58,15 +67,24 @@
       background-color: transparent;
       cursor: pointer;
       outline: none !important;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #333;
+      background-color: #e3e3e3;
     }
 
     .buttons button:hover {
       background-color: #f3f3f3;
     }
 
-    .buttons button:disabled {
-      background-color: #fff;
-      cursor: not-allowed;
+    .buttons button.submit {
+      color: #fff;
+      background-color: #333;
+      border-color: #333;
+    }
+
+    .buttons button.submit:hover {
+      background-color: #444;
     }
   </style>
 </head>
@@ -77,7 +95,7 @@
 <h3 id="secret-of-square-root-module">Secret of square root module</h3>
 <p>The secret of the <code>Sqrt</code> module in the previous section is the algorithm for computing the square root.</p>
 <div id="1" class="question" data-text="What is the secret of the Sqrt module?" data-correct="algo" data-hint="How do we compute the square root?">
-<p>1. What is the secret of the Sqrt module?</p>
+<p>What is the secret of the Sqrt module?</p>
 <div class="answer-choice" data-questionId="1" name="algo" data-text="The algorithm for computing" data-feedback="Correct">
     <input type="radio" name="1" value="algo" data-text="The algorithm for computing" data-feedback="Correct"></input>
     <label for="algo">The algorithm for computing</label>
@@ -103,8 +121,8 @@
 <p>The <em>precondition</em> of a function is what the caller (i.e. the client of the function) must ensure holds when calling the function. A precondition may specify the valid combinations of values of the arguments. It may also record any constraints on any “global” state that the function accesses or modifies.</p>
 <p>If the precondition holds, the supplier (i.e. developer) of the function must ensure that the function terminates with the <em>postcondition</em> satisfied. That is, the function returns the required values and/or alters the “global” state in the required manner.</p>
 <p>We sometimes call the set of preconditions and postconditions for a function the <em>contract</em> for that function.</p>
-<div id="2" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo">
-<p>2. What color is the sky?</p>
+<div id="2" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo" data-redirect="#title-block-header">
+<p>What color is the sky?</p>
 <div class="answer-choice" data-questionId="2" name="red" data-text="Red" data-feedback="The sky is not red">
     <input type="radio" name="2" value="red" data-text="Red" data-feedback="The sky is not red"></input>
     <label for="red">Red</label>
@@ -165,6 +183,7 @@
 
     // Question HTML Elements
     let hintUsed = false;
+    const redirect = question.getAttribute("data-redirect");
     const questionText = question.getAttribute("data-text");
     const hintBtn = question.querySelector(".toggle-hint");
     const submitBtn = question.querySelector(".submit");
@@ -217,10 +236,12 @@
         alert("Correct!");
       } else {
         // display feedback
-        alert(
-          feedback[choice.value] ||
-            "Incorrect, please select another answer choice."
-        );
+        // alert(
+        //   feedback[choice.value] ||
+        //     "Incorrect, please select another answer choice."
+        // );
+        if (redirect.charAt(0) === "#") window.location.hash = redirect;
+        else window.location.assign(redirect);
       }
     });
 

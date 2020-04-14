@@ -28,6 +28,7 @@
 
     // Question HTML Elements
     let hintUsed = false;
+    const redirect = question.getAttribute("data-redirect");
     const questionText = question.getAttribute("data-text");
     const hintBtn = question.querySelector(".toggle-hint");
     const submitBtn = question.querySelector(".submit");
@@ -80,10 +81,12 @@
         alert("Correct!");
       } else {
         // display feedback
-        alert(
-          feedback[choice.value] ||
-            "Incorrect, please select another answer choice."
-        );
+        // alert(
+        //   feedback[choice.value] ||
+        //     "Incorrect, please select another answer choice."
+        // );
+        if (redirect.charAt(0) === "#") window.location.hash = redirect;
+        else window.location.assign(redirect);
       }
     });
 

@@ -28,7 +28,7 @@ values and/or alters the "global" state in the required manner.
 We sometimes call the set of preconditions and postconditions for a
 function the _contract_ for that function.
 
-:::{ .question id="2" text="What color is the sky?" correct="blue" hint="It rhymes with moo" }
+:::{ .question id="2" text="What color is the sky?" correct="blue" hint="It rhymes with moo" redirect="#title-block-header" }
 :::::{ .answer-choice questionId="2" name="red" text="Red" feedback="The sky is not red" }
 :::::
 :::::{ .answer-choice questionId="2" name="blue" text="Blue" feedback="Correct!" }
