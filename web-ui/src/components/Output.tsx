@@ -1,14 +1,6 @@
 import _ from 'lodash';
 import React, { ReactElement } from 'react';
-
-interface PreviewProps {
-  questionId: string;
-  choices: { name: string; text: string; feedback: string }[];
-  questionText: string;
-  correct: string;
-  hint: string;
-  redirect: string;
-}
+import { QuestionData } from './App';
 
 const Block = ({
   prefix,
@@ -39,12 +31,16 @@ const Block = ({
   );
 };
 
-const Output = ({ questionId, questionText, choices }: PreviewProps) => {
+const Output = ({ questionId, questionText, choices, correct, hint, redirect }: QuestionData) => {
   return (
     <pre className='inline-block p-4 bg-gray-200'>
-      <Block prefix=':::' className='question' props={{ id: questionId, text: questionText }}>
+      <Block
+        prefix=':::'
+        className='question'
+        props={{ id: questionId, text: questionText, correct, hint, redirect }}
+      >
         {choices.map((choice, i) => (
-          <>
+          <React.Fragment key={choice.name}>
             <Block
               prefix='::::'
               key={i}
@@ -52,7 +48,7 @@ const Output = ({ questionId, questionText, choices }: PreviewProps) => {
               props={{ questionId, ...choice }}
             ></Block>
             <br />
-          </>
+          </React.Fragment>
         ))}
       </Block>
     </pre>

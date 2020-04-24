@@ -1,14 +1,6 @@
 import _ from 'lodash';
-import React, { ReactElement } from 'react';
-
-interface PreviewProps {
-  questionId: string;
-  choices: { name: string; text: string; feedback: string }[];
-  questionText: string;
-  correct: string;
-  hint: string;
-  redirect: string;
-}
+import React from 'react';
+import { QuestionData } from './App';
 
 interface AnswerChoiceProps {
   questionId: string;
@@ -30,12 +22,12 @@ const AnswerChoice = ({ questionId, choice }: AnswerChoiceProps) => {
   );
 };
 
-const Preview = ({ questionId, questionText, choices }: PreviewProps) => {
+const Preview = ({ questionId, questionText, choices }: QuestionData) => {
   return (
     <div className='question'>
       <div className='question-text'>{questionText}</div>
-      {choices.map((choice, index) => (
-        <AnswerChoice questionId={questionId} choice={choice} />
+      {choices.map(choice => (
+        <AnswerChoice key={choice.name} questionId={questionId} choice={choice} />
       ))}
       <div className='buttons'>
         <button className='toggle-hint'>View Hint</button>
