@@ -33,7 +33,7 @@ const Block = ({
 
 const Output = ({ questionId, questionText, choices, correct, hint, redirect }: QuestionData) => {
   return (
-    <pre className='inline-block p-4 bg-gray-200'>
+    <pre className='inline-block p-4 bg-gray-200 text-xs'>
       <Block
         prefix=':::'
         className='question'

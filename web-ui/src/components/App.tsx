@@ -67,7 +67,7 @@ const App = () => {
   return (
     <div className='grid grid-cols-2 gap-20 pr-10'>
       <div className='pl-10'>
-        <h1 className='text-3xl my-4'>Interactive Questions</h1>
+        <h1 className='text-3xl my-4'>Interactive Questions Generator</h1>
         <div className='mb-3'>
           <label>Question</label>
           <Input value={questionText} onChange={e => setQuestionText(e.target.value)} />

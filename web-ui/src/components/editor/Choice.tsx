@@ -111,7 +111,12 @@ const Choice = ({
               />
             </div>
             <div>
-              <label className='text-gray-700'>Feedback</label>
+              <label className='text-gray-700'>
+                Feedback{' '}
+                <span className='font-light text-gray-600 text-xs italic'>
+                  *displays after submission
+                </span>
+              </label>
               <input
                 value={choice.feedback}
                 onChange={e => updateFeedback(e.target.value)}
@@ -132,7 +137,7 @@ const Choice = ({
         </div>
         <div className='bg-red-400'>
           <button className='h-full text-white px-2' onClick={() => removeChoice(choice.name)}>
-            <i className='fas fa-minus-circle' />
+            <i className='fas fa-trash-alt' />
           </button>
         </div>
       </div>
