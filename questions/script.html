@@ -60,7 +60,14 @@
 
     // Add click handler for submit button
     submitBtn.addEventListener("click", () => {
+      // remove existing popups helpers
+      const existingFeedback = document.querySelector(".feedback");
+      const existingHint = document.querySelector(".hint");
+      if (existingFeedback) existingFeedback.remove();
+      if (existingHint) existingHint.remove();
+
       const choice = getSelectedAnswer();
+      if (!choice) return;
       // Add submission Cloud Firestore
       db.collection("submissions")
         .add({
@@ -76,15 +83,33 @@
         .then(() => console.log("Submission successfully saved!"))
         .catch(() => console.log("Unable to save submission!"));
 
+      const feedbackP = document.createElement("p");
+      feedbackP.textContent = feedback[choice.value];
+
+      const closeFeedbackBtn = document.createElement("button");
+      closeFeedbackBtn.textContent = "X";
+      closeFeedbackBtn.onclick = () => {
+        feedbackDiv.remove();
+      };
+
+      const feedbackDiv = document.createElement("div");
+      feedbackDiv.classList.add("feedback");
+      feedbackDiv.append(feedbackP, closeFeedbackBtn);
+
+      const f = feedback[choice.value];
+
       if (choice.value === correct) {
-        // display correct
-        alert("Correct!");
+        if (!f) feedbackP.textContent = "Correct!";
+        feedbackDiv.classList.add("correct");
+        question.prepend(feedbackDiv);
       } else {
-        // display feedback
-        // alert(
-        //   feedback[choice.value] ||
-        //     "Incorrect, please select another answer choice."
-        // );
+        if (!f) feedbackP.textContent = "Incorrect!";
+        feedbackDiv.classList.add("incorrect");
+        question.prepend(feedbackDiv);
+      }
+
+      if (redirect && choice.value !== correct) {
+        // handle incorrect dynamic redirect
         if (redirect.charAt(0) === "#") window.location.hash = redirect;
         else window.location.assign(redirect);
       }
@@ -93,7 +118,26 @@
     // Add click handler for hint button
     hintBtn.addEventListener("click", () => {
       hintUsed = true;
-      alert(hint);
+
+      const existingFeedback = document.querySelector(".feedback");
+      const existingHint = document.querySelector(".hint");
+      if (existingFeedback) existingFeedback.remove();
+      if (existingHint) existingHint.remove();
+
+      const hintP = document.createElement("p");
+      hintP.textContent = hint;
+
+      const closeHintBtn = document.createElement("button");
+      closeHintBtn.textContent = "X";
+      closeHintBtn.onclick = () => {
+        hintDiv.remove();
+      };
+
+      const hintDiv = document.createElement("div");
+      hintDiv.className = "hint";
+      hintDiv.append(hintP, closeHintBtn);
+
+      question.prepend(hintDiv);
     });
   });
 </script>

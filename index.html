@@ -33,12 +33,41 @@
       margin-top: 0px;
     }
 
-    .hint {
-      display: none;
+    .hint,
+    .feedback {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f2f2f2;
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
     }
 
-    .hint.visible {
-      display: block;
+    .feedback.correct {
+      background-color: #e2f8e5;
+    }
+
+    .feedback.incorrect {
+      background-color: #f8e2e2;
+    }
+
+    .hint p,
+    .feedback p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .hint button,
+    .feedback button {
+      font-size: 18px;
+      font-weight: bold;
+      background: transparent;
+      cursor: pointer;
+      color: #333;
+      border: none;
+      border-radius: 4px;
     }
 
     .answer-choice {
@@ -70,7 +99,7 @@
       text-transform: uppercase;
       font-weight: bold;
       color: #333;
-      background-color: #e3e3e3;
+      background-color: #fff;
     }
 
     .buttons button:hover {
@@ -121,26 +150,26 @@
 <p>The <em>precondition</em> of a function is what the caller (i.e. the client of the function) must ensure holds when calling the function. A precondition may specify the valid combinations of values of the arguments. It may also record any constraints on any “global” state that the function accesses or modifies.</p>
 <p>If the precondition holds, the supplier (i.e. developer) of the function must ensure that the function terminates with the <em>postcondition</em> satisfied. That is, the function returns the required values and/or alters the “global” state in the required manner.</p>
 <p>We sometimes call the set of preconditions and postconditions for a function the <em>contract</em> for that function.</p>
-<div id="2" class="question" data-text="What color is the sky?" data-correct="blue" data-hint="It rhymes with moo" data-redirect="#title-block-header">
+<div id="q-GnYqTGkyJ" class="question" data-text="What color is the sky?" data-correct="a-18e9aylIX" data-hint="It rhymes with moo" data-redirect>
 <p>What color is the sky?</p>
-<div class="answer-choice" data-questionId="2" name="red" data-text="Red" data-feedback="The sky is not red">
-    <input type="radio" name="2" value="red" data-text="Red" data-feedback="The sky is not red"></input>
-    <label for="red">Red</label>
+<div class="answer-choice" data-questionId="q-GnYqTGkyJ" name="a-V2Vd08cjH" data-text="yellow" data-feedback="the sky aint yellow">
+    <input type="radio" name="q-GnYqTGkyJ" value="a-V2Vd08cjH" data-text="yellow" data-feedback="the sky aint yellow"></input>
+    <label for="a-V2Vd08cjH">yellow</label>
   
 </div>
-<div class="answer-choice" data-questionId="2" name="blue" data-text="Blue" data-feedback="Correct!">
-    <input type="radio" name="2" value="blue" data-text="Blue" data-feedback="Correct!"></input>
-    <label for="blue">Blue</label>
+<div class="answer-choice" data-questionId="q-GnYqTGkyJ" name="a-18e9aylIX" data-text="blue" data-feedback="nice work!">
+    <input type="radio" name="q-GnYqTGkyJ" value="a-18e9aylIX" data-text="blue" data-feedback="nice work!"></input>
+    <label for="a-18e9aylIX">blue</label>
   
 </div>
-<div class="answer-choice" data-questionId="2" name="green" data-text="Green" data-feedback="The sky is not green">
-    <input type="radio" name="2" value="green" data-text="Green" data-feedback="The sky is not green"></input>
-    <label for="green">Green</label>
+<div class="answer-choice" data-questionId="q-GnYqTGkyJ" name="a-BFU5CztFN" data-text="red" data-feedback="the sky aint red">
+    <input type="radio" name="q-GnYqTGkyJ" value="a-BFU5CztFN" data-text="red" data-feedback="the sky aint red"></input>
+    <label for="a-BFU5CztFN">red</label>
   
 </div>
-<div class="answer-choice" data-questionId="2" name="yellow" data-text="Yellow" data-feedback="The sky is not yellow">
-    <input type="radio" name="2" value="yellow" data-text="Yellow" data-feedback="The sky is not yellow"></input>
-    <label for="yellow">Yellow</label>
+<div class="answer-choice" data-questionId="q-GnYqTGkyJ" name="a-uLO-fjKu5" data-text="green" data-feedback="the sky aint green">
+    <input type="radio" name="q-GnYqTGkyJ" value="a-uLO-fjKu5" data-text="green" data-feedback="the sky aint green"></input>
+    <label for="a-uLO-fjKu5">green</label>
   
 </div>
 <div class="buttons">
@@ -215,7 +244,14 @@
 
     // Add click handler for submit button
     submitBtn.addEventListener("click", () => {
+      // remove existing popups helpers
+      const existingFeedback = document.querySelector(".feedback");
+      const existingHint = document.querySelector(".hint");
+      if (existingFeedback) existingFeedback.remove();
+      if (existingHint) existingHint.remove();
+
       const choice = getSelectedAnswer();
+      if (!choice) return;
       // Add submission Cloud Firestore
       db.collection("submissions")
         .add({
@@ -231,15 +267,33 @@
         .then(() => console.log("Submission successfully saved!"))
         .catch(() => console.log("Unable to save submission!"));
 
+      const feedbackP = document.createElement("p");
+      feedbackP.textContent = feedback[choice.value];
+
+      const closeFeedbackBtn = document.createElement("button");
+      closeFeedbackBtn.textContent = "X";
+      closeFeedbackBtn.onclick = () => {
+        feedbackDiv.remove();
+      };
+
+      const feedbackDiv = document.createElement("div");
+      feedbackDiv.classList.add("feedback");
+      feedbackDiv.append(feedbackP, closeFeedbackBtn);
+
+      const f = feedback[choice.value];
+
       if (choice.value === correct) {
-        // display correct
-        alert("Correct!");
+        if (!f) feedbackP.textContent = "Correct!";
+        feedbackDiv.classList.add("correct");
+        question.prepend(feedbackDiv);
       } else {
-        // display feedback
-        // alert(
-        //   feedback[choice.value] ||
-        //     "Incorrect, please select another answer choice."
-        // );
+        if (!f) feedbackP.textContent = "Incorrect!";
+        feedbackDiv.classList.add("incorrect");
+        question.prepend(feedbackDiv);
+      }
+
+      if (redirect && choice.value !== correct) {
+        // handle incorrect dynamic redirect
         if (redirect.charAt(0) === "#") window.location.hash = redirect;
         else window.location.assign(redirect);
       }
@@ -248,7 +302,26 @@
     // Add click handler for hint button
     hintBtn.addEventListener("click", () => {
       hintUsed = true;
-      alert(hint);
+
+      const existingFeedback = document.querySelector(".feedback");
+      const existingHint = document.querySelector(".hint");
+      if (existingFeedback) existingFeedback.remove();
+      if (existingHint) existingHint.remove();
+
+      const hintP = document.createElement("p");
+      hintP.textContent = hint;
+
+      const closeHintBtn = document.createElement("button");
+      closeHintBtn.textContent = "X";
+      closeHintBtn.onclick = () => {
+        hintDiv.remove();
+      };
+
+      const hintDiv = document.createElement("div");
+      hintDiv.className = "hint";
+      hintDiv.append(hintP, closeHintBtn);
+
+      question.prepend(hintDiv);
     });
   });
 </script>

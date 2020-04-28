@@ -15,12 +15,41 @@
     margin-top: 0px;
   }
 
-  .hint {
-    display: none;
+  .hint,
+  .feedback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
   }
 
-  .hint.visible {
-    display: block;
+  .feedback.correct {
+    background-color: #e2f8e5;
+  }
+
+  .feedback.incorrect {
+    background-color: #f8e2e2;
+  }
+
+  .hint p,
+  .feedback p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .hint button,
+  .feedback button {
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+    color: #333;
+    border: none;
+    border-radius: 4px;
   }
 
   .answer-choice {
@@ -52,7 +81,7 @@
     text-transform: uppercase;
     font-weight: bold;
     color: #333;
-    background-color: #e3e3e3;
+    background-color: #fff;
   }
 
   .buttons button:hover {

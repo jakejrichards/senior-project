@@ -28,13 +28,13 @@ values and/or alters the "global" state in the required manner.
 We sometimes call the set of preconditions and postconditions for a
 function the _contract_ for that function.
 
-:::{ .question id="2" text="What color is the sky?" correct="blue" hint="It rhymes with moo" redirect="#title-block-header" }
-:::::{ .answer-choice questionId="2" name="red" text="Red" feedback="The sky is not red" }
-:::::
-:::::{ .answer-choice questionId="2" name="blue" text="Blue" feedback="Correct!" }
-:::::
-:::::{ .answer-choice questionId="2" name="green" text="Green" feedback="The sky is not green" }
-:::::
-:::::{ .answer-choice questionId="2" name="yellow" text="Yellow" feedback="The sky is not yellow" }
-:::::
+:::{ .question id="q-GnYqTGkyJ" text="What color is the sky?" correct="a-18e9aylIX" hint="It rhymes with moo" redirect="" }
+::::{ .answer-choice questionId="q-GnYqTGkyJ" name="a-V2Vd08cjH" text="yellow" feedback="the sky aint yellow" }
+::::
+::::{ .answer-choice questionId="q-GnYqTGkyJ" name="a-18e9aylIX" text="blue" feedback="nice work!" }
+::::
+::::{ .answer-choice questionId="q-GnYqTGkyJ" name="a-BFU5CztFN" text="red" feedback="the sky aint red" }
+::::
+::::{ .answer-choice questionId="q-GnYqTGkyJ" name="a-uLO-fjKu5" text="green" feedback="the sky aint green" }
+::::
 :::
