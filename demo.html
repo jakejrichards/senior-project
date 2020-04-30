@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="H. Conrad Cunningham" />
-  <meta name="dcterms.date" content="2018-09-07" />
   <title>Senior Project Demo</title>
   <style>
     code{white-space: pre-wrap;}
@@ -14,68 +12,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -184,188 +120,28 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Senior Project Demo</h1>
-<p class="author"><strong>H. Conrad Cunningham</strong></p>
-<p class="date"><strong>7 September 2018</strong></p>
 </header>
-<hr />
-<h2 id="lang-en">lang: en</h2>
-<div class="line-block">Copyright (C) 2016, 2017, 2018,</div>
-<p><a href="http://www.cs.olemiss.edu/~hcc">H. Conrad Cunningham</a> | Professor of <a href="https://www.cs.olemiss.edu">Computer and Information Science</a> | <a href="http://www.olemiss.edu">University of Mississippi</a> | 211 Weir Hall | P.O. Box 1848 | University, MS 38677 | (662) 915-5358</p>
-<p><strong>Browser Advisory:</strong> The HTML version of this textbook requires a browser that supports the display of MathML. A good choice as of September 2018 is a recent version of Firefox from Mozilla.</p>
-<h1 id="procedural-abstraction">Procedural Abstraction</h1>
-<h2 id="chapter-introduction">Chapter Introduction</h2>
-<p>Chapter 2 introduced the concepts of procedural and data abstraction. This chapter focuses on procedural abstraction. The next chapter focuses on on data abstraction.</p>
-<p>The goals of this chapter are to:</p>
-<ul>
-<li><p>illustrate use of procedural abstraction, in particular of the top-down, stepwise refinement approach to design</p></li>
-<li><p>introduce modular programming using Haskell modules</p></li>
-</ul>
-<h2 id="using-top-down-stepwise-refinement">Using Top-Down Stepwise Refinement</h2>
-<p>A useful and intuitive design process for a small program is to begin with a high-level solution and incrementally fill in the details. We call this process top-down stepwise refinement. Here we introduce it with an example.</p>
-<h3 id="developing-a-square-root-package">Developing a square root package</h3>
-<p>Consider the problem of computing the nonnegative square root of a nonnegative number <span class="math inline"><em>x</em></span>. Mathematically, we want to find the number <span class="math inline"><em>y</em></span> such that</p>
-<blockquote>
-<p><span class="math inline"><em>y</em> ≥ 0</span> and <span class="math inline"><em>y</em><sup>2</sup> = <em>x</em></span>.</p>
-</blockquote>
-<p>A common algorithm in mathematics for computing the above <span class="math inline"><em>y</em></span> is to use Newton’s method of successive approximations, which has the following steps for square root:</p>
-<ol type="1">
-<li><p>Guess at the value of <span class="math inline"><em>y</em></span>.</p></li>
-<li><p>If the current approximation (guess) is sufficiently close (i.e. good enough), return it and stop; otherwise, continue.</p></li>
-<li><p>Compute an improved guess by averaging the value of the guess <span class="math inline"><em>y</em></span> and <span class="math inline"><em>x</em>/<em>y</em></span>, then go back to step 2.</p></li>
-</ol>
-<p>To encode this algorithm in Haskell, we work top down to decompose the problem into smaller parts until each part can be solved easily. We begin this <em>top-down stepwise refinement</em> by defining a function with the type signature:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="ot">    sqrtIter ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span></code></pre></div>
-<p>We choose type <code class="sourceCode haskell"><span class="dt">Double</span></code> (double precision floating point) to approximate the real numbers. Thus we can encode step 2 of the above algorithm as the following Haskell function definition:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a>    sqrtIter guess x                                    <span class="co">-- step 2</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>        <span class="op">|</span> goodEnough guess x <span class="ot">=</span> guess</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        <span class="op">|</span> <span class="fu">otherwise</span>          <span class="ot">=</span> sqrtIter (improve guess x) x</span></code></pre></div>
-<p>We define function <code class="sourceCode haskell">sqrtIter</code> to take two arguments—the current approximation <code class="sourceCode haskell">guess</code> and nonnegative number <code>x</code> for which we need the square root. We have two cases:</p>
-<ul>
-<li><p>When the current approximation <code class="sourceCode haskell">guess</code> is sufficiently close to <code>x</code>, we return <code class="sourceCode haskell">guess</code>.</p>
-<p>We abstract this decision into a separate function <code class="sourceCode haskell">goodEnough</code> with type signature:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1"></a><span class="ot">    goodEnough ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></span></code></pre></div></li>
-<li><p>When the approximation is not yet close enough, we continue by reducing the problem to the application of <code class="sourceCode haskell">sqrtIter</code> itself to an improved approximation.</p>
-<p>We abstract the improvement process into a separate function <code class="sourceCode haskell">improve</code> with type signature:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1"></a><span class="ot">    improve ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span></code></pre></div>
-<p>To ensure termination of <code class="sourceCode haskell">sqrtIter</code>, the argument <code class="sourceCode haskell">(improve guess x)</code> on the recursive call must get closer to termination (i.e. to a value that satisfies its base case).</p></li>
-</ul>
-<p>The function <code>improve</code> takes the current <code class="sourceCode haskell">guess</code> and <code class="sourceCode haskell">x</code> and carries out step 3 of the algorithm, thus averaging <code class="sourceCode haskell">guess</code> and <code class="sourceCode haskell">x<span class="op">/</span>guess</code>, as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1"></a><span class="ot">    improve ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>     <span class="co">-- step 3</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>    improve guess x <span class="ot">=</span> average guess (x<span class="op">/</span>guess)</span></code></pre></div>
-<p>Function application <code class="sourceCode haskell">improve y x</code> assumes <code class="sourceCode haskell">x <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> y <span class="op">&gt;</span> <span class="dv">0</span></code>. We call this a <em>precondition</em> of the <code class="sourceCode haskell">improve y x</code> function.</p>
-<p>Because of the precondition of <code class="sourceCode haskell">improve</code>, we need to strengthen the precondition of <code class="sourceCode haskell">sqrtIter guess x</code> to <code class="sourceCode haskell">x <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> guess <span class="op">&gt;</span> <span class="dv">0</span></code>.`&lt;</p>
-<p>In <code class="sourceCode haskell">improve</code>, we abstract <code class="sourceCode haskell">average</code> into a separate function as follows:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1"></a><span class="ot">    average ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>    average x y <span class="ot">=</span> (x <span class="op">+</span> y) <span class="op">/</span> <span class="dv">2</span></span></code></pre></div>
-<p>The new guess is closer to the square root than the previous guess. Thus the algorithm will terminate assuming a good choice for function <code class="sourceCode haskell">goodEnough</code>, which guards the base case of the <code class="sourceCode haskell">sqrtIter</code> recursion.</p>
-<p>How should we define <code class="sourceCode haskell">goodEnough</code>? Given that we are working with the limited precision of computer floating point arithmetic, it is not easy to choose an appropriate test for all situations. Here we simplify this and use a tolerance of 0.001.</p>
-<p>We thus postulate the following definition for <code class="sourceCode haskell">goodEnough</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1"></a><span class="ot">    goodEnough ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>    goodEnough guess x <span class="ot">=</span> <span class="fu">abs</span> (square guess <span class="op">-</span> x) <span class="op">&lt;</span> <span class="fl">0.001</span></span></code></pre></div>
-<p>In the above, <code class="sourceCode haskell"><span class="fu">abs</span></code> is the built-in absolute value function defined in the standard Prelude library. We define square as the following simple function (but could replace it by just <code class="sourceCode haskell">guess <span class="op">*</span> guess</code>):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1"></a><span class="ot">    square ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>    square x <span class="ot">=</span> x <span class="op">*</span> x</span></code></pre></div>
-<p>What is a good initial guess? It is sufficient to just use 1. So we can define an overall square root function <code class="sourceCode haskell">sqrt&#39;</code> as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1"></a><span class="ot">    sqrt&#39; ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>    sqrt&#39; x <span class="op">|</span> x <span class="op">&gt;=</span> <span class="dv">0</span> <span class="ot">=</span> sqrtIter <span class="dv">1</span> x</span></code></pre></div>
-<p>(A square root function <code class="sourceCode haskell"><span class="fu">sqrt</span></code> is defined in the Prelude library, so a different name is needed to avoid the name clash.)</p>
-<p>Function <code class="sourceCode haskell">sqrt&#39; x</code> has precondition <code class="sourceCode haskell">x <span class="op">&gt;=</span> <span class="dv">0</span></code>. This and the choice of <code>1</code> for the initial guess ensure that functions <code class="sourceCode haskell">sqrtIter</code> and <code class="sourceCode haskell">improve</code> are applied with arguments that satisfy their preconditions.</p>
-<h3 id="making-the-package-a-haskell-module">Making the package a Haskell module</h3>
-<p>We can make this package into a Haskell module by putting the definitions in a file (e.g. named <code>Sqrt.hs</code>) and adding a module header at the beginning as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1"></a>    <span class="kw">module</span> <span class="dt">Sqrt</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>        ( sqrt&#39; )</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="kw">where</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>        <span class="co">-- give the definitions above for functions sqrt&#39;,</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>        <span class="co">--   sqrtIter, improve, average, and goodEnough</span></span></code></pre></div>
-<p>The header gives the module the name <code>Sqrt</code> and defines the names in parenthesis as being <em>exported</em> from this module to other modules that <em>import</em> this module. The other symbols (e.g. <code class="sourceCode haskell">sqrtIter</code>, <code class="sourceCode haskell">goodEnough</code>, <code class="sourceCode haskell">improve</code>) are local to (i.e. hidden inside) the module.</p>
-<p>We can import module <code class="sourceCode haskell"><span class="dt">Sqrt</span></code> into a module such as <code class="sourceCode haskell"><span class="dt">TestSqrt</span></code> shown below. The <code class="sourceCode haskell"><span class="kw">import</span></code> makes all the definitions exported by <code class="sourceCode haskell"><span class="dt">Sqrt</span></code> available with module <code class="sourceCode haskell"><span class="dt">TestSqrt</span></code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb11-1"><a href="#cb11-1"></a>    <span class="kw">module</span> <span class="dt">TestSqrt</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>    <span class="kw">where</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="kw">import</span> <span class="dt">Sqrt</span> <span class="co">-- file Sqrt.hs, import all public names</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a></span>
-<span id="cb11-6"><a href="#cb11-6"></a>    main <span class="ot">=</span> <span class="kw">do</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>        <span class="fu">putStrLn</span> (<span class="fu">show</span> (sqrt&#39; <span class="dv">16</span>))</span>
-<span id="cb11-8"><a href="#cb11-8"></a>        <span class="fu">putStrLn</span> (<span class="fu">show</span> (sqrt&#39; <span class="dv">2</span>))</span></code></pre></div>
-<p>In the above Haskell code, the symbol “<code class="sourceCode haskell"><span class="co">--</span></code>” denotes the beginning of an end-of-line comment. All text after that symbol is text ignored by the Haskell compiler.</p>
-<p>The Haskell module for the Square root case study is in file <a href="Sqrt.hs"><code>Sqrt.hs</code></a>. Limited testing code is in module <a href="TestSqrt.hs"><code>SqrtTest.hs</code></a>.</p>
-<h3 id="reviewing-top-down-stepwise-refinement">Reviewing top-down stepwise refinement</h3>
-<p>The program design strategy known as <em>top-down stepwise refinement</em> is a relatively intuitive design process that has long been applied in the design of structured programs in imperative procedural languages. It is also useful in the functional setting.</p>
-<p>In Haskell, we can apply top-down stepwise refinement as follows.</p>
-<ol type="1">
-<li><p>Start with a high-level solution to the problem consisting of one or more functions. For each function, identify its type signature and functional requirements (i.e. its inputs, outputs, and termination condition).</p>
-<p>Some parts of each function may be abstracted as “pseudocode” expressions or as-yet-undefined functions.</p></li>
-<li><p>Choose one of the incomplete parts. Consider the specified type signature and functional requirements. Refine the incomplete part by breaking it into subparts or, if simple, defining it directly in terms of Haskell expressions (including calls to the Prelude, other available library functions, or previously defined parts of the algorithm). When refining an incomplete part, consider the various options according to the relevant design criteria (e.g., time, space, generality, understandability, elegance, etc.)</p>
-<p>The refinement of the function may require a refinement of the data being passed. If so, back up in the refinement process and readdress previous design decisions as needed.</p>
-<p>If it not possible to design an appropriate refinement, back up in the refinement process and readdress previous design decisions.</p></li>
-<li><p>Continue step 2 until all parts are fully defined in terms of Haskell code and data and the resulting set of functions meets all required criteria.</p></li>
-</ol>
-<p>For as long as possible, we should stay with terminology and notation that is close to the problem being solved. We can do this by choosing appropriate function names and signatures and data types. (In other chapters, we examine Haskell’s rich set of builtin and user-defined types.)</p>
-<p>For stepwise refinement to work well, we must be willing to back up to earlier design decisions when appropriate. We should keep good documentation of the intermediate design steps.</p>
-<p>The stepwise refinement method can work well for small programs , but it may not scale well to large, long-lived, general purpose programs. In particular, stepwise refinement may lead to a module structure in which modules are tightly coupled and not robust with respect to changes in requirements.</p>
-<p>A combination of techniques may be needed to develop larger software systems. In the next section, we consider the use of modular design techniques.</p>
-<h2 id="modular-design-and-programming">Modular Design and Programming</h2>
-<p>Software engineering pioneer David Parnas defines a <em>module</em> as “a work assignment given to a programmer or group of programmers” [Parnas 1978]. This is a <em>software engineering</em> view of a module.</p>
-<p>In a programming language like Haskell, a <code class="sourceCode haskell"><span class="kw">module</span></code> is also a program unit defined with a construct or convention. This is a <em>programming language</em> view of a module.</p>
-<p>Ideally, a language’s module features should support the software engineering module methods.</p>
-<h3 id="information-hiding-modules-and-secrets">Information-hiding modules and secrets</h3>
-<p>According to Parnas, the goals of <em>modular design</em> are to [Parnas 1972]:</p>
-<ol type="1">
-<li><p>enable programmers to understand the system by focusing on one module at a time (i.e. <em>comprehensibility</em>).</p></li>
-<li><p>shorten development time by minimizing required communication among groups (i.e. <em>independent development</em>).</p></li>
-<li><p>make the software system flexible by limiting the `number of modules affected by significant changes (i.e. <em>changeability</em>).</p></li>
-</ol>
-<p>Parnas advocates the use of a principle he called <em>information hiding</em> to guide decomposition of a system into appropriate modules (i.e. work assignments). He points out that the connections among the modules should have as few information requirements as possible [Parnas 1972].</p>
-<p>In the Parnas approach, an information-hiding module:</p>
-<ul>
-<li><p>forms a <em>cohesive</em> unit of functionality <em>separate</em> from other modules</p></li>
-<li><p><em>hides</em> a design decision—its <em>secret</em>—from other modules</p></li>
-<li><p><em>encapsulates</em> an aspect of system likely to change (its secret)</p></li>
-</ul>
-<p>Aspects likely to change independently of each other should become secrets of separate modules. Aspects unlikely to change can become interactions (connections) among modules.</p>
-<p>This approach supports the goal of changeability (goal 2). When care is taken to design the modules as clean abstractions with well-defined and documented interfaces, the approach also supports the goals of independent development (goal 1) and comprehensibility (goal 3).</p>
-<p>Information hiding has been absorbed into the dogma of contemporary object-oriented programming. However, information hiding is often oversimplified as merely hiding the data and their representations [Weiss 2001].</p>
-<p>The secret of a well-designed module may be much more than that. It may include such knowledge as a specific functional requirement stated in the requirements document, the processing algorithm used, the nature of external devices accessed, or even the presence or absence of other modules or programs in the system [Parnas 1972, 1979, 1985]. These are important aspects that may change as the system evolves.</p>
-<h4 id="secret-of-square-root-module">Secret of square root module</h4>
-<p>The secret of the <code>Sqrt</code> module in the previous section is the algorithm for computing the square root.</p>
-<h3 id="contracts-preconditions-and-postconditions">Contracts: Preconditions and postconditions</h3>
-<p>The <em>precondition</em> of a function is what the caller (i.e. the client of the function) must ensure holds when calling the function. A precondition may specify the valid combinations of values of the arguments. It may also record any constraints on ant “global” state that the function accesses or modifies.</p>
-<p>If the precondition holds, the supplier (i.e. developer) of the function must ensure that the function terminates with the <em>postcondition</em> satisfied. That is, the function returns the required values and/or alters the “global” state in the required manner.</p>
-<p>We sometimes call the set of preconditions and postconditions for a function the <em>contract</em> for that function.</p>
-<h4 id="contracts-of-square-root-module">Contracts of square root module</h4>
-<p>In the <code>Sqrt</code> module defined in the previous section, the exported function <code>sqrt&#39; x</code> has the precondition:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1"></a>    x <span class="op">&gt;=</span> <span class="dv">0</span></span></code></pre></div>
-<p>Function <code>sqrt&#39; x</code> is undefined for <code>x &lt; 0</code>.</p>
-<p>The postcondition of the function <code>sqrt&#39; x</code> function is that the result returned is the correct mathematical value of the square root within the allowed tolerance. That is, for a tolerance of 0.001:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb13-1"><a href="#cb13-1"></a>    (<span class="fu">sqrt</span> x <span class="op">-</span> <span class="fl">0.001</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">&lt;</span> (<span class="fu">sqrt</span> x)<span class="op">^</span><span class="dv">2</span> <span class="op">&lt;</span> (<span class="fu">sqrt</span> x <span class="op">+</span> <span class="fl">0.001</span>)<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
-<p>We can state preconditions and postconditions for the local functions <code>sqrtIter</code>, <code>improve</code>, <code>average</code>, and <code>goodEnough</code> in the <code>Sqrt</code> module. The preconditions for functions <code>average</code> and <code>goodEnough</code> are just the assertion <code>True</code> (i.e. always satisfied).</p>
-<h4 id="contracts-of-factorial-module">Contracts of <code>Factorial</code> module</h4>
-<p>Consider the factorial functions defined in Chapter 4. (These are in the source file <a href="../Ch04/%3CFactorial.hs%3E"><code>Factorial.hs</code></a>.)</p>
-<p>What are the preconditions and postconditions?</p>
-<p>Functions <code>fact1</code>, <code>fact2</code>, and <code>fact3</code> require that argument <code>n</code> be a natural number (nonnegative integer) value. If they are applied to a negative value for <code>n</code>, then the evaluation does not terminate. Operationally, they go into an “infinite loop” and likely will abort when the runtime stack overflows.</p>
-<p>If function <code>fact4</code> is called with a negative argument, then all guards and pattern matches fail. Thus the function aborts with a standard error message.</p>
-<p>Similarly, function <code>fact4&#39;</code> terminates with a custom error message for negative arguments.</p>
-<p>Thus to ensure normal termination, we impose the precondition</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb14-1"><a href="#cb14-1"></a>    n <span class="op">&gt;=</span> <span class="dv">0</span></span></code></pre></div>
-<p>on all these factorial functions.</p>
-<p>The postcondition of all six factorial functions is that the result returned is the correct mathematical value of <code>n</code> factorial. For <code>fact4</code>, that is:</p>
-<blockquote>
-<p><code>fact4 n =</code> <em>fact’(n)</em></p>
-</blockquote>
-<p>None of the six factorial functions access or modify any global data structures, so we do not include other items in the precondition or postcondition.</p>
-<p>Function <code>fact5</code> is defined to be 1 for all arguments less than zero. So, if this is the desired result, we can weaken the precondition to allow all integer values, for example,</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb15-1"><a href="#cb15-1"></a>    <span class="dt">True</span></span></code></pre></div>
-<p>and strengthen the postcondition to give the results for negative arguments, for example:</p>
-<blockquote>
-<p><code>fact5 n = if n &gt;= 0 then</code> <em>fact’</em><code>(n) else 1</code></p>
-</blockquote>
-<h3 id="interfaces">Interfaces</h3>
-<p>It is important for information-hiding modules to have well-defined and stable interfaces.</p>
-<p>According to Britton et al, an <em>interface</em> is a “set of assumptions … each programmer needs to make about the other program … to demonstrate the correctness of his own program” [Britton 1981].</p>
-<p>A module interface includes the type signatures (i.e. names, arguments, and return values), preconditions, and postconditions of all public operations (e.g. functions).</p>
-<p>As we see in the next chapter, the interface also includes the <em>invariant</em> properties of the data values and structures manipulated by the module and the definitions of any new data types exported by the module. An invariant must be part of the precondition of public operations except operations that construct elements of the data type (i.e. constructors). It must also be part of the postcondition of public operations except operations that destroy elements of the data type (i.e. destructors).</p>
-<p>As we have seen, in Haskell the <code>module</code> construct can be used to encapsulate an information-hiding module. The functions and data types exported form part of the interface to the module. One module can <code>import</code> another module, specifying its dependence on the interface of the other module.</p>
-<p>Haskell’s module facility and type system support part of what is needed to define an interface, but Haskell does not provide direct syntactic or semantic support for preconditions, postconditions, or invariant assertions.</p>
-<div id="q-FpHpfBAWo" class="question" data-text="What does a module interface include?" data-correct="a-T15Ylm1tW" data-hint="There might be more than just one." data-redirect>
-<p>What does a module interface include?</p>
-<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-exJoLErcC" data-text="Type Signatures" data-feedback="Is that all?">
-    <input type="radio" name="q-FpHpfBAWo" value="a-exJoLErcC" data-text="Type Signatures" data-feedback="Is that all?"></input>
-    <label for="a-exJoLErcC">Type Signatures</label>
+<h2 id="basic-demo">Basic Demo</h2>
+<div id="q-FpHpfBAWo" class="question" data-text="What color is the sky?" data-correct="a-wklbAlwVV" data-hint="It rhymes with moo." data-redirect>
+<p>What color is the sky?</p>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-UBFQIboX8" data-text="Green" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-UBFQIboX8" data-text="Green" data-feedback></input>
+    <label for="a-UBFQIboX8">Green</label>
   
 </div>
-<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-6MLtr9dPA" data-text="Preconditions" data-feedback="Is that all?">
-    <input type="radio" name="q-FpHpfBAWo" value="a-6MLtr9dPA" data-text="Preconditions" data-feedback="Is that all?"></input>
-    <label for="a-6MLtr9dPA">Preconditions</label>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-rzr9DQ96z" data-text="Red" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-rzr9DQ96z" data-text="Red" data-feedback></input>
+    <label for="a-rzr9DQ96z">Red</label>
   
 </div>
-<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-TTGTM7msP" data-text="Postconditions" data-feedback="Is that all?">
-    <input type="radio" name="q-FpHpfBAWo" value="a-TTGTM7msP" data-text="Postconditions" data-feedback="Is that all?"></input>
-    <label for="a-TTGTM7msP">Postconditions</label>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-wklbAlwVV" data-text="Blue" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-wklbAlwVV" data-text="Blue" data-feedback></input>
+    <label for="a-wklbAlwVV">Blue</label>
   
 </div>
-<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-T15Ylm1tW" data-text="All of the above" data-feedback="Correct!">
-    <input type="radio" name="q-FpHpfBAWo" value="a-T15Ylm1tW" data-text="All of the above" data-feedback="Correct!"></input>
-    <label for="a-T15Ylm1tW">All of the above</label>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-QSFjgTpIW" data-text="Yellow" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-QSFjgTpIW" data-text="Yellow" data-feedback></input>
+    <label for="a-QSFjgTpIW">Yellow</label>
   
 </div>
 <div class="buttons">
@@ -374,179 +150,30 @@
   
 </div>
 </div>
-<h4 id="interface-of-square-root-module">Interface of square root module</h4>
-<p>The interface to the <code>Sqrt</code> module in the previous section consists of the function signature:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb16-1"><a href="#cb16-1"></a><span class="ot">    sqrt&#39; ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span></code></pre></div>
-<p>where <code>sqrt&#39; x</code> has the precondition and postcondition defined above. None of the other functions are accessible outside the module <code>Sqrt</code> and, hence, are not part of the interface.</p>
-<h3 id="abstract-interfaces">Abstract interfaces</h3>
-<p>An <em>abstract interface</em> is an interface that does not change when one module implementation is substituted for another [Britton 1981; Parnas 1978]. It concentrates on module’s essential aspects and obscures incidental aspects that vary among implementations.</p>
-<p>Information-hiding modules and abstract interfaces enable us to design and build software systems with multiple versions. The information-hiding approach seeks to identify aspects of a software design that might change from one version to another and to hide them within independent modules behind well-defined abstract interfaces.</p>
-<p>We can reuse the software design across several similar systems. We can reuse an existing module implementation when appropriate. When we need a new implementation, we can create one by following the specification of the module’s abstract interface.</p>
-<h4 id="abstract-interface-of-square-root-module">Abstract interface of square root module</h4>
-<p>For the <code>Sqrt</code> example, if we implemented a different module with the same interface (signatures, preconditions, postconditions, etc.), then we could substitute the new module for <code>Sqrt</code> and get the same result.</p>
-<p>In this case, the interface is an abstract interface for the set of module implementations.</p>
-<p>Caveats: Of course, the time and space performance of the alternative modules might differ. Also, because of the nature of floating point arithmetic, it may be difficult to ensure both algorithms have precisely the same termination conditions.</p>
-<h3 id="client-supplier-relationship">Client-supplier relationship</h3>
-<p>The design and implementation of information-hiding modules must be approached from two points of view simultaneously:</p>
-<dl>
-<dt><strong>supplier</strong>:</dt>
-<dd>the developers of the module—the providers of the services
-</dd>
-<dt><strong>client</strong>:</dt>
-<dd>the users of the module—the users of the services (e.g. the designers of other modules)
-</dd>
-</dl>
-<p>The <em>client-supplier relationship</em> is as represented in the following diagram:</p>
-<pre><code>   ________________             ________________
-  |                |           |                |
-  |     Client     |===USES===&gt;|    Supplier    |
-  |________________|           |________________|
-
-    (module user)                   (module)</code></pre>
-<p>The supplier’s concerns include:</p>
-<ul>
-<li><p>efficient and reliable algorithms and data structures</p></li>
-<li><p>convenient implementation</p></li>
-<li><p>easy maintenance</p></li>
-</ul>
-<p>The clients’ concerns include:</p>
-<ul>
-<li><p>accomplishing their own tasks</p></li>
-<li><p>using the supplier module without effort to understand its internal details</p></li>
-<li><p>having a sufficient, but not overwhelming, set of operations.</p></li>
-</ul>
-<p>As we have noted previously, the <em>interface</em> of a module is the set of features (i.e., public operations) provided by a supplier to clients.</p>
-<p>A precise description of a supplier’s interface forms a <em>contract</em> between clients and supplier.</p>
-<p>The client-supplier contract:</p>
-<ol type="1">
-<li><p>gives the responsibilities of the client</p>
-<p>These are the conditions under which the supplier must deliver results—when the <em>preconditions</em> of the operations are satisfied (i.e. the operations are called correctly).</p></li>
-<li><p>gives the responsibilities of the supplier</p>
-<p>These are the benefits the supplier must deliver—make the <em>postconditions</em> hold at the end of the operation (i.e. the operations deliver the correct results).</p></li>
-</ol>
-<p>The contract</p>
-<ul>
-<li><p>protects the client by specifying how much must be done by the supplier</p></li>
-<li><p>protects the supplier by specifying how little is acceptable to the client</p></li>
-</ul>
-<p>If we are both the clients and suppliers in a design situation, we should consciously attempt to separate the two different areas of concern, switching back and forth between our supplier and client “hats”.</p>
-<h3 id="design-criteria-for-interfaces">Design criteria for interfaces</h3>
-<p>What else should we consider in designing a good interface for an information-hiding module?</p>
-<p>In designing an interface for a module, we should also consider the following criteria. Of course, some of these criteria conflict with one another; a designer must carefully balance the criteria to achieve a good interface design.</p>
-<p>Note: These are general principles; they are not limited to Haskell or functional programming. In object-oriented languages, these criteria apply to class interfaces.</p>
-<ul>
-<li><p><strong>Cohesion:</strong> All operations must logically fit together to support a single, coherent purpose. The module should describe a single abstraction.</p></li>
-<li><p><strong>Simplicity:</strong> Avoid needless features. The smaller the interface the easier it is to use the module.</p></li>
-<li><p><strong>No redundancy:</strong> Avoid offering the same service in more than one way; eliminate redundant features.</p></li>
-<li><p><strong>Atomicity:</strong> Do not combine several operations if they are needed individually. Keep independent features separate. All operations should be <em>primitive</em>, that is, not be decomposable into other operations also in the public interface.</p></li>
-<li><p><strong>Completeness:</strong> All primitive operations that make sense for the abstraction should be supported by the module.</p></li>
-<li><p><strong>Consistency:</strong> Provide a set of operations that are internally consistent in</p>
-<ul>
-<li><p>naming convention (e.g., in use of prefixes like “set” or “get”, in capitalization, in use of verbs/nouns/adjectives),</p></li>
-<li><p>use of arguments and return values (e.g., order and type of arguments),</p></li>
-<li><p>behavior (i.e. make operations work similarly).</p></li>
-</ul>
-<p>Avoid surprises and misunderstandings. Consistent interfaces make it easier to understand the rest of a system if part of it is already known.</p>
-<p>The operations should be consistent with good practices for the specific language being used.</p></li>
-<li><p><strong>Reusability:</strong> Do not customize modules to specific clients, but make them general enough to be reusable in other contexts.</p></li>
-<li><p><strong>Robustness with respect to modifications:</strong> Design the interface of an module so that it remains stable even if the implementation of the module changes. (That is, it should be an abstract interface for an information-hiding module as we discussed above.)</p></li>
-<li><p><strong>Convenience:</strong> Where appropriate, provide additional operations (e.g., beyond the complete primitive set) for the convenience of users of the module. Add convenience operations only for frequently used combinations after careful study.</p></li>
-</ul>
-<p>We must trade off conflicts among the criteria. For example, we must balance:</p>
-<ul>
-<li><p>completeness versus simplicity</p></li>
-<li><p>reusability versus simplicity</p></li>
-<li><p>convenience versus consistency, simplicity, no redundancy, and atomicity</p></li>
-</ul>
-<p>We must also balance these design criteria against efficiency and functionality.</p>
-<h2 id="what-next">What Next?</h2>
-<p>In this chapter, we considered modularity in the context of procedural abstraction.</p>
-<p>In the next chapter, we consider modularity in the context of data abstraction.</p>
-<h2 id="exercises">Exercises</h2>
-<ol type="1">
-<li><p>State preconditions and postconditions for the following internal functions in the <code>Sqrt</code> module:</p>
-<ol type="a">
-<li><code>sqrtIter</code></li>
-<li><code>improve</code></li>
-<li><code>average</code></li>
-<li><code>goodEnough</code></li>
-<li><code>square</code></li>
-</ol></li>
-<li><p>Develop recursive and iterative (looping) versions of the square root function from this chapter in an imperative language (e.g. Java, C++, Python 3, etc.)</p></li>
-</ol>
-<h2 id="acknowledgements">Acknowledgements</h2>
-<p>In Summer and Fall 2016, I adapted and revised much of this work from my previous materials:</p>
-<ul>
-<li><p>Using Top-Down Stepwise Refinement (square root module) from my earlier implementations of this algorithm in Scala, Elixir, and Lua and from section 1.1.7 of Abelson and Sussman’s <a href="http://mitpress.mit.edu/sicp/"><em>Structure and Interpretation of Computer Programs</em></a> [Abelson 1996]</p></li>
-<li><p>Modular Design and Programming from my Data Abstraction [Cunningham 2018a] and Modular Design [Cunningham 2018b] notes, which draw from the ideas of several references listed</p></li>
-</ul>
-<p>In 2017, I continued to develop this work as sections 2.5-2.7 in Chapter 2, Basic Haskell Functional Programming), of my 2017 Haskell-based programming languages textbook.</p>
-<p>In Spring and Summer 2018, I divided the previous Basic Haskell Functional Programming chapter into four chapters in the 2018 version of the textbook, now titled <em>Exploring Languages with Interpreters and Functional Programming.</em> Previous sections 2.1-2.3 became the basis for new Chapter 4, First Haskell Programs; previous Section 2.4 became Section 5.3 in the new Chapter 5, Types; and previous sections 2.5-2.7 were reorganized into new Chapter 6, Procedural Abstraction (this chapter), and Chapter 7, Data Abstraction. The discussion of contracts for the factorial functions was moved from the 2017 Evaluation and Efficiency chapter to this chapter.</p>
-<p>I maintain this chapter as text in Pandoc’s dialect of Markdown using embedded LaTeX markup for the mathematical formulas and then translate the document to HTML, PDF, and other forms as needed.</p>
-<h2 id="references">References</h2>
-<dl>
-<dt>[Abelson 1996]:</dt>
-<dd>Harold Abelson and Gerald Jay Sussman. <em>Structure and Interpretation of Computer Programs</em> (<a href="http://mitpress.mit.edu/sicp/">SICP</a>), Second Edition, MIT Press, 1996.
-</dd>
-<dt>[Bird 1988]:</dt>
-<dd>Richard Bird and Philip Wadler. <em>Introduction to Functional Programming</em>, <a href="https://usi-pl.github.io/lc/sp-2015/doc/Bird_Wadler.%20Introduction%20to%20Functional%20Programming.1ed.pdf">First Edition</a>, Prentice Hall, 1988.
-</dd>
-<dt>[Britton 1981]:</dt>
-<dd>K. H. Britton, R. A. Parker, and D. L. Parnas. A Procedure for Designing Abstract Interfaces for Device Interface Modules, In <em>Proceedings of the 5th International Conference on Software Engineering</em>, pp. 195-204, March 1981.
-</dd>
-<dt>[Cunningham 2001]:</dt>
-<dd>H. Conrad Cunningham and Jingyi Wang. Building a Layered Framework for the Table Abstraction, In <em>Proceedings of the ACM Symposium on Applied Computing</em>, pp. 668-674, March 2001.
-</dd>
-<dt>[Cunningham 2004]:</dt>
-<dd>H. Conrad Cunningham, Cuihua Zhang, and Yi Liu. Keeping Secrets within a Family: Rediscovering Parnas, In <em>Proceedings of the International Conference on Software Engineering Research and Practice (SERP)</em>, pp. 712-718, CSREA Press, June 2004.
-</dd>
-<dt>[<a href="localcopy/Cunningham_Table_Abstraction.pdf">Cunningham 2010</a>]:</dt>
-<dd>H. Conrad Cunningham, Yi Liu, and Jingyi Wang. Designing a Flexible Framework for a Table Abstraction, In Y. Chan, J. Talburt, and T. Talley, editors, Data Engineering: Mining, Information, and Intelligence, pp. 279-314, Springer, 2010.
-</dd>
-<dt>[Cunningham 2014a]:</dt>
-<dd>H. Conrad Cunningham. <a href="https://john.cs.olemiss.edu/~hcc/csci450/notes/haskell_notes.pdf"><em>Notes on Functional Programming with Haskell</em></a>, 1994-2014.
-</dd>
-<dt>[Cunningham 2018a]:</dt>
-<dd>H. Conrad Cunningham. <a href="https://john.s.olemiss.edu/~hcc/csci658/notes/DataAbstraction.html"><em>Notes on Data Abstraction</em></a>, 1996-2018.
-</dd>
-<dt>[Cunningham 2018b]:</dt>
-<dd>H. Conrad Cunningham. <a href="https://john.s.olemiss.edu/~hcc/csci658/notes/ModularDesign.html"><em>Notes on Modular Design</em></a>, 1996-2018.
-</dd>
-<dt>[Dale 1996]:</dt>
-<dd>Nell Dale and Henry M. Walker. <em>Abstract Data Types: Specifications, Implementations, and Applications</em>, D. C. Heath, 1996. (Especially chapter 1 on “Abstract Specification Techniques”)
-</dd>
-<dt>[Horstmann 1995]:</dt>
-<dd>Cay S. Horstmann. <em>Mastering Object-Oriented Design in C++</em>, Wiley, 1995. (Especially chapters 3-6 on “Implementing Classes”, “Interfaces”, “Object-Oriented Design”, and “Invariants”)
-</dd>
-<dt>[Meyer 1997]:</dt>
-<dd>Bertrand Meyer. <em>Object-Oriented Program Construction</em>, Second Edition, Prentice Hall, 1997. (Especially chapter 6 on “Abstract Data Types” and chapter 11 on “Design by Contract”)
-</dd>
-<dt>[Mossenbock 1995]:</dt>
-<dd>Hanspeter Mossenbock. <em>Object-Oriented Programming in Oberon-2</em>, Springer-Verlag, 1995. (Especially chapter 3 on “Data Abstraction”)
-</dd>
-<dt>[Parnas 1972]:</dt>
-<dd>D. L. Parnas. “On the Criteria to Be Used in Decomposing Systems into Modules,” <em>Communications of the ACM</em>, Vol. 15, No. 12, pp.1053-1058, 1972.
-</dd>
-<dt>[Parnas 1976]:</dt>
-<dd>D. L. Parnas. “On the Design and Development of Program Families,” <em>IEEE Transactions on Software Engineering</em>, Vol. SE-2, No. 1, pp. 1-9, March 1976.
-</dd>
-<dt>[Parnas 1978]:</dt>
-<dd>D. L. Parnas. “Some Software Engineering Principles,” <em>Infotech State of the Art Report on Structured Analysis and Design</em>, Infotech International, 10 pages, 1978. Reprinted in <em>Software Fundamentals: Collected Papers by David L. Parnas</em>, D. M. Hoffman and D. M. Weiss, editors, Addison-Wesley, 2001.
-</dd>
-<dt>[Parnas 1979]:</dt>
-<dd>D. L. Parnas. “Designing Software for Ease of Extension and Contraction,” <em>IEEE Transactions on Software Engineering</em>, Vol. SE-5, No. 1, pp. 128-138, March 1979.
-</dd>
-<dt>[Parnas 1985]:</dt>
-<dd>D. L. Parnas, P. C. Clements, and D. M. Weiss. “The Modular Structure of Complex Systems,” <em>IEEE Transactions on Software Engineering</em>, Vol. SE-11, No. 3, pp. 259-266, March 1985.
-</dd>
-<dt>[Thompson 1996]:</dt>
-<dd>Simon Thompson. <em>Haskell: The Craft of Programming</em>, First Edition, Addison Wesley, 1996; Second Edition, 1999; Third Edition, Pearson, 2011. [Weiss 2001]:
-</dd>
-<dd>D. M. Weiss. “Introduction: On the Criteria to Be Used in Decomposing Systems into Modules,” In <em>Software Fundamentals: Collected Papers by David L. Parnas</em>, D. M. Hoffman and D. M. Weiss, editors, Addison-Wesley, 2001.
-</dd>
-</dl>
-<h2 id="terms-and-concepts">Terms and Concepts</h2>
-<p>Procedural abstraction, top-down stepwise refinement, abstract code, termination condition for recursion, Newton’s method, Haskell <code>module</code>, module exports and imports, information hiding, module secret, encapsulation, precondition, postcondtion, contract, invariant, interface, abstract interface, design criteria for interfaces, software reuse, use of Haskell modules to implement information-hiding modules, client-supplier contract.</p>
+<h2 id="dynamic-redirect-demo">Dynamic Redirect Demo</h2>
+<div id="q-FpHpfBAWo" class="question" data-text="What is today&#39;s date?" data-correct="a-wklbAlwVV" data-hint="It&#39;s April" data-redirect="https://www.timeanddate.com/">
+<p>What is today&#39;s date?</p>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-wklbAlwVV" data-text="April 30, 2020" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-wklbAlwVV" data-text="April 30, 2020" data-feedback></input>
+    <label for="a-wklbAlwVV">April 30, 2020</label>
+  
+</div>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-UBFQIboX8" data-text="May 5, 2020" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-UBFQIboX8" data-text="May 5, 2020" data-feedback></input>
+    <label for="a-UBFQIboX8">May 5, 2020</label>
+  
+</div>
+<div class="answer-choice" data-questionId="q-FpHpfBAWo" name="a-rzr9DQ96z" data-text="January 13, 2020" data-feedback>
+    <input type="radio" name="q-FpHpfBAWo" value="a-rzr9DQ96z" data-text="January 13, 2020" data-feedback></input>
+    <label for="a-rzr9DQ96z">January 13, 2020</label>
+  
+</div>
+<div class="buttons">
+    <button class="toggle-hint">View Hint</button>
+    <button disabled class="submit">Submit</button>
+  
+</div>
+</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script>!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e=e||self).firebase=t()}(this,function(){"use strict";var r=function(e,t){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(e,t)};var a=function(){return(a=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var i in t=arguments[r])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i]);return e}).apply(this,arguments)};function e(e,a,s,c){return new(s=s||Promise)(function(r,t){function n(e){try{o(c.next(e))}catch(e){t(e)}}function i(e){try{o(c.throw(e))}catch(e){t(e)}}function o(e){var t;e.done?r(e.value):((t=e.value)instanceof s?t:new s(function(e){e(t)})).then(n,i)}o((c=c.apply(e,a||[])).next())})}function n(r,n){var i,o,a,e,s={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return e={next:t(0),throw:t(1),return:t(2)},"function"==typeof Symbol&&(e[Symbol.iterator]=function(){return this}),e;function t(t){return function(e){return function(t){if(i)throw new TypeError("Generator is already executing.");for(;s;)try{if(i=1,o&&(a=2&t[0]?o.return:t[0]?o.throw||((a=o.return)&&a.call(o),0):o.next)&&!(a=a.call(o,t[1])).done)return a;switch(o=0,a&&(t=[2&t[0],a.value]),t[0]){case 0:case 1:a=t;break;case 4:return s.label++,{value:t[1],done:!1};case 5:s.label++,o=t[1],t=[0];continue;case 7:t=s.ops.pop(),s.trys.pop();continue;default:if(!(a=0<(a=s.trys).length&&a[a.length-1])&&(6===t[0]||2===t[0])){s=0;continue}if(3===t[0]&&(!a||t[1]>a[0]&&t[1]<a[3])){s.label=t[1];break}if(6===t[0]&&s.label<a[1]){s.label=a[1],a=t;break}if(a&&s.label<a[2]){s.label=a[2],s.ops.push(t);break}a[2]&&s.ops.pop(),s.trys.pop();continue}t=n.call(r,s)}catch(e){t=[6,e],o=0}finally{i=a=0}if(5&t[0])throw t[1];return{value:t[0]?t[1]:void 0,done:!0}}([t,e])}}}function d(e){var t="function"==typeof Symbol&&Symbol.iterator,r=t&&e[t],n=0;if(r)return r.call(e);if(e&&"number"==typeof e.length)return{next:function(){return e&&n>=e.length&&(e=void 0),{value:e&&e[n++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")}function p(e,t){var r="function"==typeof Symbol&&e[Symbol.iterator];if(!r)return e;var n,i,o=r.call(e),a=[];try{for(;(void 0===t||0<t--)&&!(n=o.next()).done;)a.push(n.value)}catch(e){i={error:e}}finally{try{n&&!n.done&&(r=o.return)&&r.call(o)}finally{if(i)throw i.error}}return a}function v(e,t){if(!(t instanceof Object))return t;switch(t.constructor){case Date:return new Date(t.getTime());case Object:void 0===e&&(e={});break;case Array:e=[];break;default:return t}for(var r in t)t.hasOwnProperty(r)&&(e[r]=v(e[r],t[r]));return e}var i=(t.prototype.wrapCallback=function(r){var n=this;return function(e,t){e?n.reject(e):n.resolve(t),"function"==typeof r&&(n.promise.catch(function(){}),1===r.length?r(e):r(e,t))}},t);function t(){var r=this;this.reject=function(){},this.resolve=function(){},this.promise=new Promise(function(e,t){r.resolve=e,r.reject=t})}var o,s,c,h=(o=Error,r(s=u,c=o),s.prototype=null===c?Object.create(c):(l.prototype=c.prototype,new l),u);function l(){this.constructor=s}function u(e,t){var r=o.call(this,t)||this;return r.code=e,r.name="FirebaseError",Object.setPrototypeOf(r,u.prototype),Error.captureStackTrace&&Error.captureStackTrace(r,f.prototype.create),r}var f=(y.prototype.create=function(e){for(var t=[],r=1;r<arguments.length;r++)t[r-1]=arguments[r];for(var n,i=t[0]||{},o=this.service+"/"+e,a=this.errors[e],s=a?(n=i,a.replace(m,function(e,t){var r=n[t];return null!=r?r.toString():"<"+t+"?>"})):"Error",c=this.serviceName+": "+s+" ("+o+").",l=new h(o,c),p=0,u=Object.keys(i);p<u.length;p++){var f=u[p];"_"!==f.slice(-1)&&(f in l&&console.warn('Overwriting FirebaseError base field "'+f+'" can cause unexpected behavior.'),l[f]=i[f])}return l},y);function y(e,t,r){this.service=e,this.serviceName=t,this.errors=r}var m=/\{\$([^}]+)}/g;function g(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function b(e,t){var r=new w(e,t);return r.subscribe.bind(r)}var w=(E.prototype.next=function(t){this.forEachObserver(function(e){e.next(t)})},E.prototype.error=function(t){this.forEachObserver(function(e){e.error(t)}),this.close(t)},E.prototype.complete=function(){this.forEachObserver(function(e){e.complete()}),this.close()},E.prototype.subscribe=function(e,t,r){var n,i=this;if(void 0===e&&void 0===t&&void 0===r)throw new Error("Missing Observer.");void 0===(n=function(e,t){if("object"==typeof e&&null!==e)for(var r=0,n=t;r<n.length;r++){var i=n[r];if(i in e&&"function"==typeof e[i])return 1}}(e,["next","error","complete"])?e:{next:e,error:t,complete:r}).next&&(n.next=O),void 0===n.error&&(n.error=O),void 0===n.complete&&(n.complete=O);var o=this.unsubscribeOne.bind(this,this.observers.length);return this.finalized&&this.task.then(function(){try{i.finalError?n.error(i.finalError):n.complete()}catch(e){}}),this.observers.push(n),o},E.prototype.unsubscribeOne=function(e){void 0!==this.observers&&void 0!==this.observers[e]&&(delete this.observers[e],--this.observerCount,0===this.observerCount&&void 0!==this.onNoObservers&&this.onNoObservers(this))},E.prototype.forEachObserver=function(e){if(!this.finalized)for(var t=0;t<this.observers.length;t++)this.sendOne(t,e)},E.prototype.sendOne=function(e,t){var r=this;this.task.then(function(){if(void 0!==r.observers&&void 0!==r.observers[e])try{t(r.observers[e])}catch(e){"undefined"!=typeof console&&console.error&&console.error(e)}})},E.prototype.close=function(e){var t=this;this.finalized||(this.finalized=!0,void 0!==e&&(this.finalError=e),this.task.then(function(){t.observers=void 0,t.onNoObservers=void 0}))},E);function E(e,t){var r=this;this.observers=[],this.unsubscribes=[],this.observerCount=0,this.task=Promise.resolve(),this.finalized=!1,this.onNoObservers=t,this.task.then(function(){e(r)}).catch(function(e){r.error(e)})}function O(){}var _=(I.prototype.setInstantiationMode=function(e){return this.instantiationMode=e,this},I.prototype.setMultipleInstances=function(e){return this.multipleInstances=e,this},I.prototype.setServiceProps=function(e){return this.serviceProps=e,this},I);function I(e,t,r){this.name=e,this.instanceFactory=t,this.type=r,this.multipleInstances=!1,this.serviceProps={},this.instantiationMode="LAZY"}var N="[DEFAULT]",L=(S.prototype.get=function(e){void 0===e&&(e=N);var t=this.normalizeInstanceIdentifier(e);if(!this.instancesDeferred.has(t)){var r=new i;this.instancesDeferred.set(t,r);try{var n=this.getOrInitializeService(t);n&&r.resolve(n)}catch(e){}}return this.instancesDeferred.get(t).promise},S.prototype.getImmediate=function(e){var t=a({identifier:N,optional:!1},e),r=t.identifier,n=t.optional,i=this.normalizeInstanceIdentifier(r);try{var o=this.getOrInitializeService(i);if(o)return o;if(n)return null;throw Error("Service "+this.name+" is not available")}catch(e){if(n)return null;throw e}},S.prototype.getComponent=function(){return this.component},S.prototype.setComponent=function(e){var t,r;if(e.name!==this.name)throw Error("Mismatching Component "+e.name+" for Provider "+this.name+".");if(this.component)throw Error("Component for "+this.name+" has already been provided");if("EAGER"===(this.component=e).instantiationMode)try{this.getOrInitializeService(N)}catch(e){}try{for(var n=d(this.instancesDeferred.entries()),i=n.next();!i.done;i=n.next()){var o=p(i.value,2),a=o[0],s=o[1],c=this.normalizeInstanceIdentifier(a);try{var l=this.getOrInitializeService(c);s.resolve(l)}catch(e){}}}catch(e){t={error:e}}finally{try{i&&!i.done&&(r=n.return)&&r.call(n)}finally{if(t)throw t.error}}},S.prototype.clearInstance=function(e){void 0===e&&(e=N),this.instancesDeferred.delete(e),this.instances.delete(e)},S.prototype.delete=function(){return e(this,void 0,void 0,function(){var t;return n(this,function(e){switch(e.label){case 0:return t=Array.from(this.instances.values()),[4,Promise.all(t.filter(function(e){return"INTERNAL"in e}).map(function(e){return e.INTERNAL.delete()}))];case 1:return e.sent(),[2]}})})},S.prototype.isComponentSet=function(){return null!=this.component},S.prototype.getOrInitializeService=function(e){var t,r=this.instances.get(e);return!r&&this.component&&(r=this.component.instanceFactory(this.container,(t=e)===N?void 0:t),this.instances.set(e,r)),r||null},S.prototype.normalizeInstanceIdentifier=function(e){return!this.component||this.component.multipleInstances?e:N},S);function S(e,t){this.name=e,this.container=t,this.component=null,this.instances=new Map,this.instancesDeferred=new Map}var R,P=(A.prototype.addComponent=function(e){var t=this.getProvider(e.name);if(t.isComponentSet())throw new Error("Component "+e.name+" has already been registered with "+this.name);t.setComponent(e)},A.prototype.addOrOverwriteComponent=function(e){this.getProvider(e.name).isComponentSet()&&this.providers.delete(e.name),this.addComponent(e)},A.prototype.getProvider=function(e){if(this.providers.has(e))return this.providers.get(e);var t=new L(e,this);return this.providers.set(e,t),t},A.prototype.getProviders=function(){return Array.from(this.providers.values())},A);function A(e){this.name=e,this.providers=new Map}function j(){for(var e=0,t=0,r=arguments.length;t<r;t++)e+=arguments[t].length;var n=Array(e),i=0;for(t=0;t<r;t++)for(var o=arguments[t],a=0,s=o.length;a<s;a++,i++)n[i]=o[a];return n}var C,D,F=[];(D=C=C||{})[D.DEBUG=0]="DEBUG",D[D.VERBOSE=1]="VERBOSE",D[D.INFO=2]="INFO",D[D.WARN=3]="WARN",D[D.ERROR=4]="ERROR",D[D.SILENT=5]="SILENT";function k(e,t){for(var r=[],n=2;n<arguments.length;n++)r[n-2]=arguments[n];if(!(t<e.logLevel)){var i=(new Date).toISOString(),o=z[t];if(!o)throw new Error("Attempted to log a message with an invalid logType (value: "+t+")");console[o].apply(console,j(["["+i+"]  "+e.name+":"],r))}}var x,H={debug:C.DEBUG,verbose:C.VERBOSE,info:C.INFO,warn:C.WARN,error:C.ERROR,silent:C.SILENT},T=C.INFO,z=((R={})[C.DEBUG]="log",R[C.VERBOSE]="log",R[C.INFO]="info",R[C.WARN]="warn",R[C.ERROR]="error",R),B=(Object.defineProperty(V.prototype,"logLevel",{get:function(){return this._logLevel},set:function(e){if(!(e in C))throw new TypeError("Invalid value assigned to `logLevel`");this._logLevel=e},enumerable:!0,configurable:!0}),Object.defineProperty(V.prototype,"logHandler",{get:function(){return this._logHandler},set:function(e){if("function"!=typeof e)throw new TypeError("Value assigned to `logHandler` must be a function");this._logHandler=e},enumerable:!0,configurable:!0}),Object.defineProperty(V.prototype,"userLogHandler",{get:function(){return this._userLogHandler},set:function(e){this._userLogHandler=e},enumerable:!0,configurable:!0}),V.prototype.debug=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._userLogHandler&&this._userLogHandler.apply(this,j([this,C.DEBUG],e)),this._logHandler.apply(this,j([this,C.DEBUG],e))},V.prototype.log=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._userLogHandler&&this._userLogHandler.apply(this,j([this,C.VERBOSE],e)),this._logHandler.apply(this,j([this,C.VERBOSE],e))},V.prototype.info=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._userLogHandler&&this._userLogHandler.apply(this,j([this,C.INFO],e)),this._logHandler.apply(this,j([this,C.INFO],e))},V.prototype.warn=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._userLogHandler&&this._userLogHandler.apply(this,j([this,C.WARN],e)),this._logHandler.apply(this,j([this,C.WARN],e))},V.prototype.error=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._userLogHandler&&this._userLogHandler.apply(this,j([this,C.ERROR],e)),this._logHandler.apply(this,j([this,C.ERROR],e))},V);function V(e){this.name=e,this._logLevel=T,this._logHandler=k,this._userLogHandler=null,F.push(this)}function U(e){var t="string"==typeof e?H[e]:e;F.forEach(function(e){e.logLevel=t})}var M,W=((x={})["no-app"]="No Firebase App '{$appName}' has been created - call Firebase App.initializeApp()",x["bad-app-name"]="Illegal App name: '{$appName}",x["duplicate-app"]="Firebase App named '{$appName}' already exists",x["app-deleted"]="Firebase App named '{$appName}' already deleted",x["invalid-app-argument"]="firebase.{$appName}() takes either no argument or a Firebase App instance.",x["invalid-log-argument"]="First argument to `onLog` must be null or a function.",x),G=new f("app","Firebase",W),$="@firebase/app",Y="[DEFAULT]",K=((M={})[$]="fire-core",M["@firebase/analytics"]="fire-analytics",M["@firebase/auth"]="fire-auth",M["@firebase/database"]="fire-rtdb",M["@firebase/functions"]="fire-fn",M["@firebase/installations"]="fire-iid",M["@firebase/messaging"]="fire-fcm",M["@firebase/performance"]="fire-perf",M["@firebase/remote-config"]="fire-rc",M["@firebase/storage"]="fire-gcs",M["@firebase/firestore"]="fire-fst",M["fire-js"]="fire-js",M["firebase-wrapper"]="fire-js-all",M),J=new B("@firebase/app"),Z=(Object.defineProperty(q.prototype,"automaticDataCollectionEnabled",{get:function(){return this.checkDestroyed_(),this.automaticDataCollectionEnabled_},set:function(e){this.checkDestroyed_(),this.automaticDataCollectionEnabled_=e},enumerable:!0,configurable:!0}),Object.defineProperty(q.prototype,"name",{get:function(){return this.checkDestroyed_(),this.name_},enumerable:!0,configurable:!0}),Object.defineProperty(q.prototype,"options",{get:function(){return this.checkDestroyed_(),this.options_},enumerable:!0,configurable:!0}),q.prototype.delete=function(){var t=this;return new Promise(function(e){t.checkDestroyed_(),e()}).then(function(){return t.firebase_.INTERNAL.removeApp(t.name_),Promise.all(t.container.getProviders().map(function(e){return e.delete()}))}).then(function(){t.isDeleted_=!0})},q.prototype._getService=function(e,t){return void 0===t&&(t=Y),this.checkDestroyed_(),this.container.getProvider(e).getImmediate({identifier:t})},q.prototype._removeServiceInstance=function(e,t){void 0===t&&(t=Y),this.container.getProvider(e).clearInstance(t)},q.prototype._addComponent=function(t){try{this.container.addComponent(t)}catch(e){J.debug("Component "+t.name+" failed to register with FirebaseApp "+this.name,e)}},q.prototype._addOrOverwriteComponent=function(e){this.container.addOrOverwriteComponent(e)},q.prototype.checkDestroyed_=function(){if(this.isDeleted_)throw G.create("app-deleted",{appName:this.name_})},q);function q(e,t,r){var n,i,o=this;this.firebase_=r,this.isDeleted_=!1,this.name_=t.name,this.automaticDataCollectionEnabled_=t.automaticDataCollectionEnabled||!1,this.options_=v(void 0,e),this.container=new P(t.name),this._addComponent(new _("app",function(){return o},"PUBLIC"));try{for(var a=d(this.firebase_.INTERNAL.components.values()),s=a.next();!s.done;s=a.next()){var c=s.value;this._addComponent(c)}}catch(e){n={error:e}}finally{try{s&&!s.done&&(i=a.return)&&i.call(a)}finally{if(n)throw n.error}}}Z.prototype.name&&Z.prototype.options||Z.prototype.delete||console.log("dc");var Q="7.14.0";function X(c){var l={},p=new Map,u={__esModule:!0,initializeApp:function(e,t){void 0===t&&(t={});if("object"!=typeof t||null===t){t={name:t}}var r=t;void 0===r.name&&(r.name=Y);var n=r.name;if("string"!=typeof n||!n)throw G.create("bad-app-name",{appName:String(n)});if(g(l,n))throw G.create("duplicate-app",{appName:n});var i=new c(e,r,u);return l[n]=i},app:f,registerVersion:function(e,t,r){var n,i=null!==(n=K[e])&&void 0!==n?n:e;r&&(i+="-"+r);var o=i.match(/\s|\//),a=t.match(/\s|\//);if(o||a){var s=['Unable to register library "'+i+'" with version "'+t+'":'];return o&&s.push('library name "'+i+'" contains illegal characters (whitespace or "/")'),o&&a&&s.push("and"),a&&s.push('version name "'+t+'" contains illegal characters (whitespace or "/")'),void J.warn(s.join(" "))}h(new _(i+"-version",function(){return{library:i,version:t}},"VERSION"))},setLogLevel:U,onLog:function(e,t){if(null!==e&&"function"!=typeof e)throw G.create("invalid-log-argument",{appName:name});!function(a,t){for(var e=function(e){var o=null;t&&t.level&&(o=H[t.level]),e.userLogHandler=null===a?null:function(e,t){for(var r=[],n=2;n<arguments.length;n++)r[n-2]=arguments[n];var i=r.map(function(e){if(null==e)return null;if("string"==typeof e)return e;if("number"==typeof e||"boolean"==typeof e)return e.toString();if(e instanceof Error)return e.message;try{return JSON.stringify(e)}catch(e){return null}}).filter(function(e){return e}).join(" ");t>=(null!=o?o:e.logLevel)&&a({level:C[t].toLowerCase(),message:i,args:r,type:e.name})}},r=0,n=F;r<n.length;r++){e(n[r])}}(e,t)},apps:null,SDK_VERSION:Q,INTERNAL:{registerComponent:h,removeApp:function(e){delete l[e]},components:p,useAsService:function(e,t){return"serverAuth"!==t?t:null}}};function f(e){if(!g(l,e=e||Y))throw G.create("no-app",{appName:e});return l[e]}function h(r){var t,e,n=r.name;if(p.has(n))return J.debug("There were multiple attempts to register component "+n+"."),"PUBLIC"===r.type?u[n]:null;if(p.set(n,r),"PUBLIC"===r.type){var i=function(e){if(void 0===e&&(e=f()),"function"!=typeof e[n])throw G.create("invalid-app-argument",{appName:n});return e[n]()};void 0!==r.serviceProps&&v(i,r.serviceProps),u[n]=i,c.prototype[n]=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];return this._getService.bind(this,n).apply(this,r.multipleInstances?e:[])}}try{for(var o=d(Object.keys(l)),a=o.next();!a.done;a=o.next()){var s=a.value;l[s]._addComponent(r)}}catch(e){t={error:e}}finally{try{a&&!a.done&&(e=o.return)&&e.call(o)}finally{if(t)throw t.error}}return"PUBLIC"===r.type?u[n]:null}return u.default=u,Object.defineProperty(u,"apps",{get:function(){return Object.keys(l).map(function(e){return l[e]})}}),f.App=c,u}var ee=function e(){var t=X(Z);return t.INTERNAL=a(a({},t.INTERNAL),{createFirebaseNamespace:e,extendNamespace:function(e){v(t,e)},createSubscribe:b,ErrorFactory:f,deepExtend:v}),t}(),te=(re.prototype.getPlatformInfoString=function(){return this.container.getProviders().map(function(e){if("VERSION"!==(null==(t=e.getComponent())?void 0:t.type))return null;var t,r=e.getImmediate();return r.library+"/"+r.version}).filter(function(e){return e}).join(" ")},re);function re(e){this.container=e}if("object"==typeof self&&self.self===self&&void 0!==self.firebase){J.warn("\n    Warning: Firebase is already defined in the global scope. Please make sure\n    Firebase library is only loaded once.\n  ");var ne=self.firebase.SDK_VERSION;ne&&0<=ne.indexOf("LITE")&&J.warn("\n    Warning: You are trying to load Firebase while using Firebase Performance standalone script.\n    You should load Firebase Performance with this instance of Firebase to avoid loading duplicate code.\n    ")}var ie=ee.initializeApp;ee.initializeApp=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];return function(){try{return"[object process]"===Object.prototype.toString.call(global.process)}catch(e){return}}()&&J.warn('\n      Warning: This is a browser-targeted Firebase bundle but it appears it is being\n      run in a Node environment.  If running in a Node environment, make sure you\n      are using the bundle specified by the "main" field in package.json.\n      \n      If you are using Webpack, you can specify "main" as the first item in\n      "resolve.mainFields":\n      https://webpack.js.org/configuration/resolve/#resolvemainfields\n      \n      If using Rollup, use the rollup-plugin-node-resolve plugin and specify "main"\n      as the first item in "mainFields", e.g. [\'main\', \'module\'].\n      https://github.com/rollup/rollup-plugin-node-resolve\n      '),ie.apply(void 0,e)};var oe,ae,se=ee;(oe=se).INTERNAL.registerComponent(new _("platform-logger",function(e){return new te(e)},"PRIVATE")),oe.registerVersion($,"0.6.1",ae),oe.registerVersion("fire-js","");return se.registerVersion("firebase","7.14.0","app"),se});
 //# sourceMappingURL=firebase-app.js.map
