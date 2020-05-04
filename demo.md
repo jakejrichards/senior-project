@@ -21,3 +21,10 @@
 ::::{ .answer-choice questionId="q-FpHpfBAWo" name="a-rzr9DQ96z" text="January 13, 2020" feedback="" }
 ::::
 :::
+
+:::{ .question id="q-FpHpfBAWo" text="What color is the sky?" correct="a-7iOUd0x50" hint="It rhymes with moo." redirect="https://google.com" }
+::::{ .answer-choice questionId="q-FpHpfBAWo" name="a-7iOUd0x50" text="Blue" feedback="" }
+::::
+::::{ .answer-choice questionId="q-FpHpfBAWo" name="a-i1DzvjZ7L" text="Red" feedback="" }
+::::
+:::
